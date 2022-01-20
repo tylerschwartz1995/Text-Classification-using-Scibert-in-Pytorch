@@ -1,0 +1,8 @@
+# Sentiment-Classification-using-Pytorch
+Sentiment Classification on Academic Text using Pytorch (credit to https://mccormickml.com/2019/07/22/BERT-fine-tuning/)
+
+To find the best model, multiple models we're tried. I first tried by using Glove word embeddings with a LSTM. This model capped out at around 84% after trying different hyper-parameter combinations. I then tried the same thing but with a CNN. This model performed actually better with an accuracy around 85%. Next, to improve my performance, I researched into pre-trained models on hugging face (https://huggingface.co/). I first tried the 'bert_base' which achieved good scores of close to 86%. I tried different sequence lengths and achieved the optimal performance at a length 330 tokens, and a batch size of 32. I tried 'bert-large' as well but the size of the model was too big for my environment in colab. 
+
+For my best model, I looked in word embeddings that were pre-trained on academic writing. I found two, Scibert and Spectre. I tried both with the same word length and batch size as illustrated above (others were tried but this ended up having the highest performance as well). Scibert performed slightly better as I achieved a accuracy of just abover 87% vs. 86.6% for Spectre. This was thus my final model as I was not able to find any better model after further exploring different hyperparameter combinations (learning rate, epochs, opimizers, etc...).
+
+My code below was inspired based on a tutorial I did at https://mccormickml.com/2019/07/22/BERT-fine-tuning/ which helped me learn how to use pre-trainers such as Bert amongst others from hugging face. 
